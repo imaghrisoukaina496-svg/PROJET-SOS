@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #0D0D0D;
+  --bg2: #111111;
+  --bg3: #1A1A1A;
+  --surface: #111111;
+  --border: #1A1A1A;
+  --text: #ffffff;
+  --text-muted: #555555;
+  --text-dim: #333333;
+  --red: #FF0000;
+  --red-dim: rgba(255,0,0,0.12);
+  --orange: #FF6B00;
+  --green: #00CC44;
+  --purple: #7B2FFF;
+  --accent: #FF0000;
+}
+
+[data-theme="light"] {
+  --bg: #F5F5F5;
+  --bg2: #FFFFFF;
+  --bg3: #F0F0F0;
+  --surface: #FFFFFF;
+  --border: #E5E5E5;
+  --text: #111111;
+  --text-muted: #999999;
+  --text-dim: #BBBBBB;
+  --red-dim: rgba(255,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+input, select, textarea, button { font-family: 'Inter', sans-serif; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }

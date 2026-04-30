@@ -1,0 +1,42 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sosprojet">
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:theme="@style/Theme.SOSCampus"
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:label="SOS Campus"
+        android:icon="@drawable/logo_sos"
+        android:roundIcon="@drawable/logo_sos"
+        android:supportsRtl="true">
+
+        <!--  SplashActivity = point d'entrée -->
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+
+        <!-- LoginActivity -->
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="false" />
+
+        <!-- MainActivity -->
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="false" />
+
+    </application>
+</manifest>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary">
+
+    <!-- TOPBAR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/bg_secondary"
+        android:paddingStart="8dp"
+        android:paddingEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:background="@color/transparent"
+            app:tint="@color/text_primary"
+            android:contentDescription="Retour" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Suivi de l'alerte"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:paddingStart="6dp" />
+
+        <ImageButton
+            android:id="@+id/btn_refresh"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@android:drawable/ic_menu_rotate"
+            android:background="@color/transparent"
+            app:tint="@color/text_secondary"
+            android:contentDescription="Actualiser" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <!-- ══ CARTE ALERTE ══ -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/bg_card"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_color"
+                app:strokeWidth="1dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:id="@+id/tv_alert_type_icon"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="10dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_alert_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Urgence medicale"
+                                android:textColor="@color/text_primary"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_alert_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ENS Marrakech, Bat. A, S.203"
+                                android:textColor="@color/text_muted"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <!-- Badge statut dynamique -->
+                        <TextView
+                            android:id="@+id/tv_status_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ENVOYEE"
+                            android:textColor="@color/status_sent"
+                            android:textSize="9sp"
+                            android:textStyle="bold"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.04"
+                            android:background="@drawable/bg_badge_sent"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_alert_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Envoyee : Auj. 09:12"
+                        android:textColor="@color/text_muted"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ══ BARRE DE PROGRESSION STATUTS ══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="14dp">
+
+                <!-- Envoyée -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <View android:id="@+id/bar_sent"
+                        android:layout_width="match_parent" android:layout_height="4dp"
+                        android:background="@color/status_sent"
+                        android:layout_marginEnd="2dp" android:layout_marginBottom="4dp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Envoyee" android:textColor="@color/status_sent"
+                        android:textSize="8sp" android:textStyle="bold"
+                        android:background="@drawable/bg_badge_sent"
+                        android:paddingStart="4dp" android:paddingEnd="4dp"
+                        android:paddingTop="2dp" android:paddingBottom="2dp" />
+                </LinearLayout>
+
+                <!-- En charge -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <View android:id="@+id/bar_taken"
+                        android:layout_width="match_parent" android:layout_height="4dp"
+                        android:background="@color/status_taken"
+                        android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:layout_marginBottom="4dp"
+                        android:alpha="0.35" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="En charge" android:textColor="@color/status_taken"
+                        android:textSize="8sp" android:textStyle="bold"
+                        android:background="@drawable/bg_badge_taken"
+                        android:paddingStart="4dp" android:paddingEnd="4dp"
+                        android:paddingTop="2dp" android:paddingBottom="2dp"
+                        android:alpha="0.35" />
+                </LinearLayout>
+
+                <!-- Intervention -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <View android:id="@+id/bar_inter"
+                        android:layout_width="match_parent" android:layout_height="4dp"
+                        android:background="@color/status_inter"
+                        android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:layout_marginBottom="4dp"
+                        android:alpha="0.35" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Intervention" android:textColor="@color/status_inter"
+                        android:textSize="8sp" android:textStyle="bold"
+                        android:background="@drawable/bg_badge_inter"
+                        android:paddingStart="4dp" android:paddingEnd="4dp"
+                        android:paddingTop="2dp" android:paddingBottom="2dp"
+                        android:alpha="0.35" />
+                </LinearLayout>
+
+                <!-- Clôturée -->
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <View android:id="@+id/bar_closed"
+                        android:layout_width="match_parent" android:layout_height="4dp"
+                        android:background="@color/status_closed"
+                        android:layout_marginStart="2dp" android:layout_marginBottom="4dp"
+                        android:alpha="0.35" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Cloturee" android:textColor="@color/status_closed"
+                        android:textSize="8sp" android:textStyle="bold"
+                        android:background="@drawable/bg_badge_closed"
+                        android:paddingStart="4dp" android:paddingEnd="4dp"
+                        android:paddingTop="2dp" android:paddingBottom="2dp"
+                        android:alpha="0.35" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ══ AGENT ══ -->
+            <LinearLayout
+                android:id="@+id/card_agent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_agent_card"
+                android:padding="10dp"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:id="@+id/tv_agent_avatar"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="KA"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/bg_agent_avatar"
+                    android:layout_marginEnd="10dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_agent_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Agent Khalid Amrani"
+                        android:textColor="@color/blue_agent_text"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_agent_role"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Agent de securite — Equipe A"
+                        android:textColor="@color/blue_agent_sub"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ASSIGNE"
+                    android:textColor="@color/blue_agent_sub"
+                    android:textSize="9sp"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+
+            <!-- ══ TIMELINE ══ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HISTORIQUE"
+                android:textColor="@color/text_muted"
+                android:textSize="10sp"
+                android:textAllCaps="true"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Item 1 : En intervention -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="14dp" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center_horizontal">
+                    <View android:layout_width="12dp" android:layout_height="12dp" android:background="@drawable/bg_dot_inter" android:layout_marginTop="2dp" />
+                    <View android:layout_width="2dp" android:layout_height="0dp" android:layout_weight="1" android:background="@color/border_color" android:layout_marginTop="3dp" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:paddingStart="10dp" android:paddingBottom="14dp">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="2dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="En intervention" android:textColor="@color/text_primary"
+                            android:textSize="12sp" android:textStyle="bold" android:layout_marginEnd="6dp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Intervention" android:textColor="@color/status_inter"
+                            android:textSize="8sp" android:textStyle="bold"
+                            android:background="@drawable/bg_badge_inter"
+                            android:paddingStart="6dp" android:paddingEnd="6dp"
+                            android:paddingTop="2dp" android:paddingBottom="2dp" />
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="09:18" android:textColor="@color/text_muted" android:textSize="10sp" android:layout_marginBottom="3dp" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Agent sur place, situation sous controle"
+                        android:textColor="@color/text_secondary" android:textSize="11sp"
+                        android:background="@color/bg_card" android:padding="7dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Item 2 : Prise en charge -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="14dp" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center_horizontal">
+                    <View android:layout_width="12dp" android:layout_height="12dp" android:background="@drawable/bg_dot_taken" android:layout_marginTop="2dp" />
+                    <View android:layout_width="2dp" android:layout_height="0dp" android:layout_weight="1" android:background="@color/border_color" android:layout_marginTop="3dp" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:paddingStart="10dp" android:paddingBottom="14dp">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="2dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Prise en charge" android:textColor="@color/text_primary"
+                            android:textSize="12sp" android:textStyle="bold" android:layout_marginEnd="6dp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="En charge" android:textColor="@color/status_taken"
+                            android:textSize="8sp" android:textStyle="bold"
+                            android:background="@drawable/bg_badge_taken"
+                            android:paddingStart="6dp" android:paddingEnd="6dp"
+                            android:paddingTop="2dp" android:paddingBottom="2dp" />
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="09:15" android:textColor="@color/text_muted" android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Item 3 : Envoyée -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <LinearLayout android:layout_width="14dp" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center_horizontal">
+                    <View android:layout_width="12dp" android:layout_height="12dp" android:background="@drawable/bg_dot_sent" android:layout_marginTop="2dp" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:paddingStart="10dp">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="2dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Alerte envoyee" android:textColor="@color/text_primary"
+                            android:textSize="12sp" android:textStyle="bold" android:layout_marginEnd="6dp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Envoyee" android:textColor="@color/status_sent"
+                            android:textSize="8sp" android:textStyle="bold"
+                            android:background="@drawable/bg_badge_sent"
+                            android:paddingStart="6dp" android:paddingEnd="6dp"
+                            android:paddingTop="2dp" android:paddingBottom="2dp" />
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="09:12" android:textColor="@color/text_muted" android:textSize="10sp" android:layout_marginBottom="3dp" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Position GPS transmise"
+                        android:textColor="@color/text_secondary" android:textSize="11sp"
+                        android:background="@color/bg_card" android:padding="7dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

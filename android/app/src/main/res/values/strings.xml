@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SOS Campus</string>
+    <string name="app_subtitle">ENS Marrakech — Sécurité</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Accueil</string>
+    <string name="nav_alerts">Mes alertes</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- SOS -->
+    <string name="sos_button_label">SOS</string>
+    <string name="sos_hint">Appuyez pour envoyer une alerte</string>
+    <string name="sos_send">Envoyer l\'alerte SOS</string>
+    <string name="sos_confirm_title">Confirmer l\'alerte SOS</string>
+    <string name="sos_confirm_msg">Voulez-vous vraiment envoyer une alerte d\'urgence ?</string>
+    <string name="sos_confirm_yes">Envoyer</string>
+    <string name="sos_confirm_no">Annuler</string>
+
+    <!-- Types -->
+    <string name="type_medical">Médicale</string>
+    <string name="type_security">Sécurité</string>
+    <string name="type_fire">Incendie</string>
+    <string name="type_other">Autre</string>
+    <string name="type_urgence_label">Type d\'urgence</string>
+
+    <!-- Formulaire -->
+    <string name="form_title">Nouvelle alerte SOS</string>
+    <string name="form_message_hint">Message court (ex: personne évanouie à l\'entrée…)</string>
+    <string name="form_message_label">Message optionnel</string>
+    <string name="form_gps_label">Localisation GPS</string>
+    <string name="form_gps_detecting">Détection en cours…</string>
+
+    <!-- Statuts -->
+    <string name="status_sent">ENVOYÉE</string>
+    <string name="status_taken">PRISE EN CHARGE</string>
+    <string name="status_intervention">EN INTERVENTION</string>
+    <string name="status_closed">CLÔTURÉE</string>
+
+    <!-- Suivi -->
+    <string name="suivi_title">Suivi de l\'alerte</string>
+    <string name="suivi_updates">Historique des mises à jour</string>
+    <string name="suivi_agent">Agent assigné</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Bonjour,</string>
+    <string name="home_campus">Campus ENS Marrakech</string>
+    <string name="home_recent">Mes alertes récentes</string>
+    <string name="home_quick_sos">Urgence rapide</string>
+
+    <!-- Erreurs -->
+    <string name="error_gps">Impossible d\'obtenir la position GPS</string>
+    <string name="error_network">Erreur réseau, réessayez</string>
+    <string name="error_type_required">Veuillez choisir un type d\'urgence</string>
+
+    <string name="shortcut_sos_short">Alerte SOS</string>
+    <string name="shortcut_sos_long">Declencher une alerte d\'urgence</string>
+</resources>
